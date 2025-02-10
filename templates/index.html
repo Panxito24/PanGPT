@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asistente AI</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bot-icon">
+          <path d="M12 8V4H8"></path>
+          <rect width="16" height="12" x="4" y="8" rx="2"></rect>
+          <path d="M2 14h2"></path>
+          <path d="M20 14h2"></path>
+          <path d="M15 13v2"></path>
+          <path d="M9 13v2"></path>
+        </svg>
+        <h1>Asistente AI</h1>
+        <button id="theme-toggle-button" class="theme-toggle-button">
+          <span id="theme-icon"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Messages Container -->
+    <div class="messages-container">
+      <div class="messages-content">
+        <!-- Messages will be added here dynamically -->
+      </div>
+    </div>
+
+    <!-- Input Form -->
+    <div class="input-container">
+      <form id="chat-form" class="input-form">
+        <div class="input-wrapper">
+          <input 
+            type="text" 
+            id="message-input" 
+            placeholder="Escribe un mensaje..."
+          >
+          <button type="submit" class="send-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m22 2-7 20-4-9-9-4Z"></path>
+              <path d="M22 2 11 13"></path>
+            </svg>
+          </button>
+        </div>
+      </form>
+      <button id="math-symbols-button" class="math-symbols-button">Símbolos Matemáticos</button>
+      <div id="math-symbols-container" class="math-symbols-container">
+        <button>+</button>
+        <button>-</button>
+        <button>*</button>
+        <button>/</button>
+        <button>^</button>
+        <button>(</button>
+        <button>)</button>
+        <button>=</button>
+        <button>√</button>
+        <button>∫</button>
+        <button>∑</button>
+        <button>π</button>
+        <button>≤</button>
+        <button>≥</button>
+        <button>≠</button>
+      </div>
+      <video id="video" width="320" height="240" autoplay style="display:none;"></video>
+      <canvas id="canvas"></canvas>
+    </div>
+  </div>
+
+  <button id="scroll-to-bottom-button" class="scroll-to-bottom-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 5v14"></path>
+      <path d="m19 12-7 7-7-7"></path>
+    </svg>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script type="module" src="{{ url_for('static', filename='main.js') }}"></script>
+  <script src="{{ url_for('static', filename='theme.js') }}"></script>
+</body>
+</html>
